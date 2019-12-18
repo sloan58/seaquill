@@ -10,6 +10,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator'
 import ToolkitProvider from 'react-bootstrap-table2-toolkit'
 import { useDispatch } from 'react-redux'
 import { exportResults } from '../../store/actions/queryActions'
+
 // reactstrap components
 import { Button, Card, CardHeader, CardBody, Row } from 'reactstrap'
 
@@ -31,6 +32,7 @@ const ResultsTable = () => {
               data={queryManager.results.rows}
               columns={queryManager.results.columns}
               bootstrap4={true}
+              columnToggle
             >
               {props => (
                 <React.Fragment>

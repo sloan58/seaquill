@@ -146,8 +146,8 @@ ipcMain.on('submit:query', (event, { query, targets }) => {
           axlClient
             .executeSqlQuery(query, match[0])
             .then(res => {
-              res.map(row => {
-                Object.assign(row, { ucm: target.label })
+              res.map((row, index) => {
+                Object.assign(row, { id: index, ucm: target.label })
               })
               event.reply('success:query', { rows: res, target: target.label })
               resolve()
