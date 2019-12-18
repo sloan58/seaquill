@@ -93,7 +93,7 @@ const CreateUcm = () => {
                     <option value='7.0'>7.0</option>
                   </select>
                 </div>
-                <button type='submit' className='btn btn-success'>
+                <button type='submit' className='btn btn-primary'>
                   Submit
                 </button>
                 <Link to={'/admin/ucms'}>

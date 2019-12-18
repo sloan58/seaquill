@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteUcm } from '../../store/actions/ucmActions'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 // reactstrap components
 import {
@@ -19,6 +19,7 @@ import {
 } from 'reactstrap'
 
 const UcmList = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const ucms = useSelector(state => state.ucms)
 
@@ -50,12 +51,14 @@ const UcmList = () => {
                     <i className='now-ui-icons loader_gear' />
                   </DropdownToggle>
                   <DropdownMenu right>
-                    <DropdownItem>
-                      <Link to={`/admin/ucms/${ucm.id}`}>Edit</Link>
+                    <DropdownItem
+                      onClick={() => history.push(`/admin/ucms/${ucm.id}`)}
+                    >
+                      Edit
                     </DropdownItem>
                     <DropdownItem
+                      className='text-danger'
                       onClick={() => dispatch(deleteUcm(ucm))}
-                      color='danger'
                     >
                       Delete
                     </DropdownItem>
