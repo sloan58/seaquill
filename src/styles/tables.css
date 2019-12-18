@@ -1,0 +1,5 @@
+.table {
+  overflow: auto;
+  display: block;
+  table-layout: auto;
+}

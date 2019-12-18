@@ -14,13 +14,14 @@ const CreateUcm = () => {
     ip: '',
     username: '',
     password: '',
-    version: '11.5'
+    version: '12.5'
   }
   const handleChange = e => {
     ucm[e.target.id] = e.target.value
   }
   const handleSubmit = e => {
     e.preventDefault()
+    console.log(ucm)
     dispatch(createUcm(ucm))
     history.push('/admin/ucms')
   }
@@ -92,10 +93,10 @@ const CreateUcm = () => {
                     <option value='7.0'>7.0</option>
                   </select>
                 </div>
-                <button type='submit' className='btn btn-primary'>
+                <button type='submit' className='btn btn-success'>
                   Submit
                 </button>
-                <Link to={'/ucms'}>
+                <Link to={'/admin/ucms'}>
                   <button className='btn btn-link mr-1'>Cancel</button>
                 </Link>
               </form>

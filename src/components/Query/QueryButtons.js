@@ -47,7 +47,7 @@ export default function QueryButtons() {
       </Button>
       {queryManager.results.rows.length > 0 && (
         <React.Fragment>
-          <Button onClick={handleClear} className='ml-1' color='light'>
+          <Button onClick={handleClear} className='ml-1' color='dark'>
             Clear
           </Button>
           <Button

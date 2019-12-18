@@ -4,7 +4,20 @@ import { deleteUcm } from '../../store/actions/ucmActions'
 import { Link } from 'react-router-dom'
 
 // reactstrap components
-import { Button, Card, CardHeader, CardBody, Col, Row } from 'reactstrap'
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  CardTitle,
+  CardText,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Col,
+  Row
+} from 'reactstrap'
 
 export class UcmList extends Component {
   render() {
@@ -13,34 +26,51 @@ export class UcmList extends Component {
         <Row>
           <Col>
             <Link to='/admin/ucms/create'>
-              <button type='button' className='btn btn-success float-left'>
-                Add New
-              </button>
+              <Button color='success' className='float-left btn-round'>
+                <i className='now-ui-icons ui-1_simple-add font-weight-bold'></i>
+              </Button>
             </Link>
           </Col>
         </Row>
         <Row className='row-cols-1 row-cols-md-3'>
           {this.props.ucms.map(ucm => {
             return (
-              <Col md='3' key={ucm.id}>
+              <Col md='4' key={ucm.id}>
                 <Card className='shadow border-0'>
-                  <CardHeader>
-                    <h5 className='card-title'>{ucm.name}</h5>
-                    <hr />
+                  <CardHeader className='text-info font-weight-bold' tag='h4'>
+                    {ucm.name}
+                    <hr className='mt-4' />
                   </CardHeader>
-                  <CardBody>
-                    <p className='card-text'>IP Address: {ucm.ip}</p>
-                    <p className='card-text'>Username: {ucm.username}</p>
-                    <p className='card-text'>API Version: {ucm.version}</p>
-                    <Link to={`/admin/ucms/${ucm.id}`}>
-                      <Button color='info'>Edit</Button>
-                    </Link>
-                    <Button
-                      onClick={() => this.props.deleteUcm(ucm)}
-                      color='danger'
+                  <UncontrolledDropdown>
+                    <DropdownToggle
+                      className='btn-round btn-outline-default btn-icon'
+                      color='default'
                     >
-                      Delete
-                    </Button>
+                      <i className='now-ui-icons loader_gear' />
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                      <DropdownItem>
+                        <Link to={`/admin/ucms/${ucm.id}`}>Edit</Link>
+                      </DropdownItem>
+                      <DropdownItem
+                        onClick={() => this.props.deleteUcm(ucm)}
+                        color='danger'
+                      >
+                        Delete
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                  <CardBody>
+                    <CardText>
+                      <b className='text-muted'>IP Address:</b> {ucm.ip}
+                    </CardText>
+                    <CardText>
+                      <b className='text-muted'>Username: </b>
+                      {ucm.username}
+                    </CardText>
+                    <CardText>
+                      <b className='text-muted'>API Version:</b> {ucm.version}
+                    </CardText>
                   </CardBody>
                 </Card>
               </Col>

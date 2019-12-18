@@ -3365,7 +3365,7 @@ Created using IcoMoon - icomoon.io
     margin-left: -2px; }
   .button-dropdown {
     display: none; }
-  [data-notify="container"].alert {
+  [data-notify='container'].alert {
     min-width: 400px; }
   #minimizeSidebar {
     display: none; }
@@ -3442,7 +3442,7 @@ Created using IcoMoon - icomoon.io
     top: 0;
     right: 0;
     left: 260px;
-    content: "";
+    content: '';
     z-index: 9999;
     overflow-x: hidden;
     background-color: transparent;
@@ -3457,7 +3457,7 @@ Created using IcoMoon - icomoon.io
     margin-top: 65px; }
   .navbar-nav .nav-link i.fa,
   .navbar-nav .nav-link i.now-ui-icons {
-    opacity: .5; }
+    opacity: 0.5; }
   .sidebar,
   .bootstrap-navbar {
     position: fixed;
@@ -3740,10 +3740,6 @@ Created using IcoMoon - icomoon.io
     transform: translate3d(260px, 0, 0); } }
 
 @media screen and (min-width: 992px) {
-  .navbar-collapse {
-    background: none !important; }
-  .navbar .navbar-toggle {
-    display: none; }
   .navbar-nav .nav-link.profile-photo {
     padding: 0;
     margin: 7px 0.7rem; }
@@ -3764,10 +3760,10 @@ Created using IcoMoon - icomoon.io
     text-align: center; }
     .nav-tabs .nav-item > .nav-link {
       margin-bottom: 5px; }
-  .user-profile [class*="col-"] {
+  .user-profile [class*='col-'] {
     padding-left: 15px !important;
     padding-right: 15px !important; }
-  .card-stats [class*="col-"] .statistics::after {
+  .card-stats [class*='col-'] .statistics::after {
     display: none; }
   .main-panel .content {
     padding-left: 15px;
@@ -3784,7 +3780,7 @@ Created using IcoMoon - icomoon.io
   .navbar[class*='navbar-toggleable-'] .container {
     margin-left: 0;
     margin-right: 0; }
-  [data-notify="container"].alert {
+  [data-notify='container'].alert {
     left: 10px !important;
     right: 10px !important;
     width: auto; }

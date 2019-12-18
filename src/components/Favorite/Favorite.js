@@ -7,6 +7,9 @@ import {
 import { updateQuery } from '../../store/actions/queryActions'
 import { withRouter } from 'react-router-dom'
 
+// reactstrap components
+import { Button } from 'reactstrap'
+
 export class Favorite extends Component {
   state = {
     id: this.props.favorite.id,
@@ -56,34 +59,33 @@ export class Favorite extends Component {
             <textarea
               id='query'
               type='text'
-              className='form-control'
+              className='form-control blockquote'
               value={this.state.query}
               onChange={this.handleChange}
               onBlur={this.handleBlur}
               onFocus={this.handleFocus}
             />
-            <div className='input-group-append'>
-              {this.state.editing ? (
-                <button className='btn btn-warning' type='button'>
-                  Editing...
-                </button>
-              ) : (
-                <button
-                  className='btn btn-outline-info'
-                  type='button'
-                  onClick={this.handleRun}
-                >
-                  Run
-                </button>
-              )}
-              <button
-                className='btn btn-outline-danger'
-                type='button'
-                onClick={this.handleDelete}
+
+            {this.state.editing ? (
+              <div class='spinner-grow text-warning mt-3' role='status'>
+                <span class='sr-only'>Loading...</span>
+              </div>
+            ) : (
+              <Button
+                color='success'
+                onClick={this.handleRun}
+                className='btn-round btn-icon btn-icon-mini btn-neutral'
               >
-                Remove
-              </button>
-            </div>
+                <i className='now-ui-icons media-1_button-play'></i>
+              </Button>
+            )}
+            <Button
+              color='danger'
+              onClick={this.handleDelete}
+              className='btn-round btn-icon btn-icon-mini btn-neutral'
+            >
+              <i className='now-ui-icons ui-1_simple-remove'></i>
+            </Button>
           </div>
         </div>
       </div>

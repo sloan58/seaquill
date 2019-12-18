@@ -26,6 +26,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'assets/scss/now-ui-dashboard.scss?v1.2.0'
 import 'assets/css/demo.css'
 import './styles/codeMirror.css'
+import './styles/tables.css'
 
 import AdminLayout from 'layouts/Admin.jsx'
 

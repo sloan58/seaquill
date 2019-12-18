@@ -22,7 +22,8 @@ import { Nav } from 'reactstrap'
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from 'perfect-scrollbar'
 
-import logo from 'logo-white.svg'
+import { FaBuffer } from 'react-icons/fa'
+import { IconContext } from 'react-icons'
 
 var ps
 
@@ -52,21 +53,22 @@ class Sidebar extends React.Component {
     return (
       <div className='sidebar' data-color={this.props.backgroundColor}>
         <div className='logo'>
-          <a
-            href='https://www.creative-tim.com?ref=nudr-sidebar'
-            className='simple-text logo-mini'
-            target='_blank'
-          >
+          <a href='/' className='simple-text logo-mini mr-0 pb-0'>
             <div className='logo-img'>
-              <img src={logo} alt='react-logo' />
+              <IconContext.Provider
+                value={{
+                  size: '2em',
+                  color: '#ffb236'
+                }}
+              >
+                <div>
+                  <FaBuffer />
+                </div>
+              </IconContext.Provider>
             </div>
           </a>
-          <a
-            href='https://www.creative-tim.com?ref=nudr-sidebar'
-            className='simple-text logo-normal'
-            target='_blank'
-          >
-            Creative Tim
+          <a href='/' className='simple-text logo-normal pt-1'>
+            <p>SeaQuill</p>
           </a>
         </div>
         <div className='sidebar-wrapper' ref='sidebar'>
