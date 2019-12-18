@@ -34,7 +34,9 @@ export default function UcmListView() {
         <Row>
           <Col xs={12} md={12}>
             <Card className='card-chart'>
-              <CardHeader>UCM Manager</CardHeader>
+              <CardHeader tag='h6' className='text-info'>
+                UCM Manager
+              </CardHeader>
               <CardBody>
                 <UcmList />
               </CardBody>

@@ -25,7 +25,7 @@ const UcmList = () => {
 
   return (
     <React.Fragment>
-      <Row>
+      <Row className='pb-4'>
         <Col>
           <Link to='/admin/ucms/create'>
             <Button color='success' className='float-left btn-round'>

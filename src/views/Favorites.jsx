@@ -34,7 +34,9 @@ export default function Favorites() {
         <Row>
           <Col xs={12} md={12}>
             <Card className='card-chart'>
-              <CardHeader>Favorites Manager</CardHeader>
+              <CardHeader tag='h6' className='text-info'>
+                Favorites Manager
+              </CardHeader>
               <CardBody>
                 <FavoriteList />
               </CardBody>

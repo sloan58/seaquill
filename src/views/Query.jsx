@@ -37,7 +37,7 @@ export default function Query() {
         <Row>
           <Col xs={12} md={12}>
             <Card className='card-chart'>
-              <CardHeader>
+              <CardHeader tag='h6' className='text-info'>
                 Query Editor
                 <TargetSelector />
               </CardHeader>
