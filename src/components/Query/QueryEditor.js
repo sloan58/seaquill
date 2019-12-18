@@ -7,7 +7,7 @@ import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/material.css'
 require('codemirror/mode/sql/sql')
 
-export default function QueryEditor() {
+const QueryEditor = () => {
   const dispatch = useDispatch()
   const queryManager = useSelector(state => state.queryManager)
 
@@ -25,3 +25,5 @@ export default function QueryEditor() {
     />
   )
 }
+
+export default QueryEditor

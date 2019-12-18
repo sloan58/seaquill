@@ -55,7 +55,7 @@ const ResultsTable = () => {
                   )}
                   <BootstrapTable
                     {...props.baseProps}
-                    wrapperClasses='mt-1'
+                    wrapperClasses='table-responsive mt-1'
                     filter={filterFactory()}
                     pagination={paginationFactory()}
                   />

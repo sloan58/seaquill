@@ -1,5 +1,4 @@
 .table {
   overflow: auto;
-  display: block;
-  table-layout: auto;
+  table-layout: auto !important;
 }

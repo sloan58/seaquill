@@ -67,8 +67,8 @@ export class Favorite extends Component {
             />
 
             {this.state.editing ? (
-              <div class='spinner-grow text-warning mt-3' role='status'>
-                <span class='sr-only'>Loading...</span>
+              <div className='spinner-grow text-warning mt-3' role='status'>
+                <span className='sr-only'>Loading...</span>
               </div>
             ) : (
               <Button

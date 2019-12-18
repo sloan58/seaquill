@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import Favorite from './Favorite'
 
 export class FavoriteList extends Component {
-  editInProgress = () => {}
-
   render() {
     return this.props.favorites.length ? (
       this.props.favorites.map(favorite => (
@@ -13,8 +11,8 @@ export class FavoriteList extends Component {
     ) : (
       <div className='row pb-3'>
         <div className='col-md-8 offset-md-2 text-center'>
-          <ul class='list-group'>
-            <li class='list-group-item disabled' aria-disabled='true'>
+          <ul className='list-group'>
+            <li className='list-group-item disabled' aria-disabled='true'>
               No Favorites Yet! <br />
               Start sending queries then add them to your favorites.
             </li>

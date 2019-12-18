@@ -9,7 +9,7 @@ import { Button } from 'reactstrap'
 
 require('codemirror/mode/sql/sql')
 
-export default function QueryButtons() {
+const QueryButtons = () => {
   const dispatch = useDispatch()
   const queryManager = useSelector(state => state.queryManager)
 
@@ -71,3 +71,5 @@ export default function QueryButtons() {
     </React.Fragment>
   )
 }
+
+export default QueryButtons

@@ -24,7 +24,7 @@ import QueryEditor from '../components/Query/QueryEditor'
 import QueryButtons from '../components/Query/QueryButtons'
 
 // reactstrap components
-import { Card, CardHeader, CardBody, Row, Col } from 'reactstrap'
+import { Card, CardHeader, CardBody, NavLink, Row, Col } from 'reactstrap'
 
 // core components
 import PanelHeader from 'components/PanelHeader/PanelHeader.jsx'

@@ -43,7 +43,6 @@ class Dashboard extends React.Component {
   }
   mainPanel = React.createRef()
   componentDidMount() {
-    console.log(this.props)
     this.props.getUcms()
     this.props.getFavorites()
 

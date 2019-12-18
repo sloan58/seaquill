@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 // reactstrap components
 import { Col, Row } from 'reactstrap'
 
-export default function TargetSelector() {
+const TargetSelector = () => {
   const dispatch = useDispatch()
   const queryManager = useSelector(state => state.queryManager)
   const ucms = useSelector(state => state.ucms)
@@ -41,3 +41,5 @@ export default function TargetSelector() {
     </Row>
   )
 }
+
+export default TargetSelector
