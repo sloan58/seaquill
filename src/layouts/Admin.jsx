@@ -29,7 +29,7 @@ import PerfectScrollbar from 'perfect-scrollbar'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 // core components
-import DemoNavbar from 'components/Navbars/DemoNavbar.jsx'
+import Navbar from 'components/Navbars/Navbar.jsx'
 import Footer from 'components/Footer/Footer.jsx'
 import Sidebar from 'components/Sidebar/Sidebar.jsx'
 
@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
           backgroundColor={this.state.backgroundColor}
         />
         <div className='main-panel' ref={this.mainPanel}>
-          <DemoNavbar {...this.props} />
+          <Navbar {...this.props} />
           <ToastContainer autoClose={2000} />
           <Switch>
             {routes.map((prop, key) => {
