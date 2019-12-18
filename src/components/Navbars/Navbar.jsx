@@ -90,6 +90,10 @@ class Header extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', this.updateColor.bind(this))
   }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateColor.bind(this))
+  }
+
   componentDidUpdate(e) {
     if (
       window.innerWidth < 993 &&
