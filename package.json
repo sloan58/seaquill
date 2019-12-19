@@ -1,5 +1,5 @@
 {
-  "name": "seaquill-ct",
+  "name": "seaquill",
   "version": "0.1.0",
   "main": "public/electron.js",
   "homepage": "./",
@@ -10,8 +10,8 @@
     "url": "https://karmatek.io"
   },
   "build": {
-    "appId": "com.karmatek.seaquill-ct",
-    "productName": "SeaQuill-CT",
+    "appId": "com.karmatek.seaquill",
+    "productName": "SeaQuill",
     "copyright": "Copyright © 2019 ${author}",
     "mac": {
       "category": "public.app-category.utilities"
