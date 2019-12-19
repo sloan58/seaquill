@@ -1,3 +1,10 @@
+/* Tables Horizontol Scroll */
+.table {
+  overflow: auto;
+  table-layout: auto !important;
+}
+
+/* CodeMirror Styles */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

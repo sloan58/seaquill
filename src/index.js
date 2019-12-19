@@ -21,12 +21,10 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history'
 import { Router, Route, Switch, Redirect } from 'react-router-dom'
-
 import 'bootstrap/dist/css/bootstrap.css'
 import 'assets/scss/now-ui-dashboard.scss?v1.2.0'
 import 'assets/css/demo.css'
-import './styles/codeMirror.css'
-import './styles/tables.css'
+import './styles/custom.css'
 
 import AdminLayout from 'layouts/Admin.jsx'
 

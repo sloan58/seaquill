@@ -10,6 +10,7 @@ const path = require('path')
 const db = require('electron-db')
 const isDev = require('electron-is-dev')
 const moment = require('moment')
+const { autoUpdater } = require('electron-updater')
 
 log.info(`Process says isDev = ${isDev}`)
 
@@ -70,6 +71,9 @@ function createWindow() {
 
 app.on('ready', event => {
   log.info(`App ready received`)
+
+  log.info(`Checking for app updates`)
+  autoUpdater.checkForUpdatesAndNotify()
 
   log.info(`Creating new Database`)
   createDb()
@@ -231,4 +235,15 @@ ipcMain.on('update:favorite', (event, favorite) => {
       }
     }
   )
+})
+
+// Auto Updater
+autoUpdater.on('update-available', () => {
+  mainWindow.webContents.send('update:downloading')
+})
+autoUpdater.on('update-downloaded', () => {
+  mainWindow.webContents.send('update:ready')
+})
+ipcMain.on('update:now', () => {
+  autoUpdater.quitAndInstall()
 })

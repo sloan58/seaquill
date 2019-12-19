@@ -4,6 +4,10 @@
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sloan58/seaquill.git"
+  },
   "author": {
     "name": "Marty Sloan",
     "email": "marty@karmatek.io",
@@ -32,6 +36,7 @@
     "electron-db": "^0.15.3",
     "electron-is-dev": "^1.1.0",
     "electron-log": "^4.0.0",
+    "electron-updater": "^4.2.0",
     "glamor": "^2.20.40",
     "history": "4.9.0",
     "moment": "^2.24.0",
@@ -71,7 +76,8 @@
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "electron-builder -mw"
+    "electron-build": "electron-builder -mw --publish never",
+    "electron-deploy": "electron-builder -mw --publish always"
   },
   "optionalDependencies": {
     "@types/googlemaps": "3.36.2",

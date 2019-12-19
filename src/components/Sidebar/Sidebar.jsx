@@ -19,86 +19,103 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Nav } from 'reactstrap'
-// javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from 'perfect-scrollbar'
+import { useSelector } from 'react-redux'
 
-import { FaBuffer } from 'react-icons/fa'
+import { FaBuffer, FaRedo } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 
-var ps
-
-class Sidebar extends React.Component {
-  constructor(props) {
-    super(props)
-    this.activeRoute.bind(this)
-  }
+const Sidebar = props => {
   // verifies if routeName is the one active (in browser input)
-  activeRoute(routeName) {
-    return this.props.location.pathname.indexOf(routeName) > -1 ? 'active' : ''
+  const activeRoute = routeName => {
+    return props.location.pathname.indexOf(routeName) > -1 ? 'active' : ''
   }
-  componentDidMount() {
-    if (navigator.platform.indexOf('Win') > -1) {
-      ps = new PerfectScrollbar(this.refs.sidebar, {
-        suppressScrollX: true,
-        suppressScrollY: false
-      })
-    }
-  }
-  componentWillUnmount() {
-    if (navigator.platform.indexOf('Win') > -1) {
-      ps.destroy()
-    }
-  }
-  render() {
-    return (
-      <div className='sidebar' data-color={this.props.backgroundColor}>
-        <div className='logo'>
-          <a href='/' className='simple-text logo-mini mr-0 pb-0'>
-            <div className='logo-img'>
-              <IconContext.Provider
-                value={{
-                  size: '2em',
-                  color: '#ffb236'
-                }}
-              >
-                <div>
-                  <FaBuffer />
-                </div>
-              </IconContext.Provider>
-            </div>
-          </a>
-          <a href='/' className='simple-text logo-normal pt-1'>
-            <p>SeaQuill</p>
-          </a>
-        </div>
-        <div className='sidebar-wrapper' ref='sidebar'>
-          <Nav>
-            {this.props.routes.map((prop, key) => {
-              if (prop.redirect || prop.invisible) return null
-              return (
-                <li
-                  className={
-                    this.activeRoute(prop.layout + prop.path) +
-                    (prop.pro ? ' active active-pro' : '')
-                  }
-                  key={key}
-                >
-                  <NavLink
-                    to={prop.layout + prop.path}
-                    className='nav-link'
-                    activeClassName='active'
-                  >
-                    <i className={'now-ui-icons ' + prop.icon} />
-                    <p>{prop.name}</p>
-                  </NavLink>
-                </li>
-              )
-            })}
-          </Nav>
-        </div>
+
+  const updater = useSelector(state => state.updater)
+
+  return (
+    <div className='sidebar' data-color={props.backgroundColor}>
+      <div className='logo'>
+        <a href='/' className='simple-text logo-mini mr-0 pb-0'>
+          <div className='logo-img'>
+            <IconContext.Provider
+              value={{
+                size: '2em',
+                color: '#ffb236'
+              }}
+            >
+              <div>
+                <FaBuffer />
+              </div>
+            </IconContext.Provider>
+          </div>
+        </a>
+        <a href='/' className='simple-text logo-normal pt-1'>
+          <p>SeaQuill</p>
+        </a>
       </div>
-    )
-  }
+      <div className='sidebar-wrapper'>
+        <Nav>
+          {props.routes.map((prop, key) => {
+            if (prop.redirect || prop.invisible) return null
+            return (
+              <li
+                className={
+                  activeRoute(prop.layout + prop.path) +
+                  (prop.pro ? ' active active-pro' : '')
+                }
+                key={key}
+              >
+                <NavLink
+                  to={prop.layout + prop.path}
+                  className='nav-link'
+                  activeClassName='active'
+                >
+                  <i className={'now-ui-icons ' + prop.icon} />
+                  <p>{prop.name}</p>
+                </NavLink>
+              </li>
+            )
+          })}
+          {updater.downloading && (
+            <React.Fragment>
+              <div class='logo'></div>
+              <li>
+                <NavLink to='#' className='nav-link'>
+                  <span
+                    className='spinner-grow spinner-grow-sm text-warning mr-3'
+                    role='status'
+                    aria-hidden='true'
+                  ></span>
+                  Downloading Update
+                </NavLink>
+              </li>
+            </React.Fragment>
+          )}
+          {updater.readyToInstall && (
+            <React.Fragment>
+              <div class='logo'></div>
+              <li>
+                <NavLink to='#' className='nav-link'>
+                  <IconContext.Provider
+                    value={{
+                      size: '2em',
+                      color: '#ffb236',
+                      className: 'mr-3'
+                    }}
+                  >
+                    <div>
+                      <FaRedo />
+                      Install Update Now
+                    </div>
+                  </IconContext.Provider>
+                </NavLink>
+              </li>
+            </React.Fragment>
+          )}
+        </Nav>
+      </div>
+    </div>
+  )
 }
 
 export default Sidebar
