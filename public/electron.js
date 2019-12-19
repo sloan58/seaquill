@@ -210,7 +210,6 @@ ipcMain.on('add:favorite', (event, favorite) => {
   })
 })
 ipcMain.on('remove:favorite', (event, favorite) => {
-  console.log(favorite)
   db.deleteRow('favorites', { id: favorite.id }, (success, message) => {
     if (success) {
       mainWindow.webContents.send('removed:favorite', favorite)
