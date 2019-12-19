@@ -2,7 +2,7 @@
   "name": "seaquill-ct",
   "version": "0.1.0",
   "main": "public/electron.js",
-  "homepage": "https://demos.creative-tim.com/now-ui-dashboard-react/#/",
+  "homepage": "./",
   "private": true,
   "author": {
     "name": "Marty Sloan",
@@ -71,7 +71,7 @@
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "electron-builder -mw"
+    "electron-pack": "electron-builder -m"
   },
   "optionalDependencies": {
     "@types/googlemaps": "3.36.2",
