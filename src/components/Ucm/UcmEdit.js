@@ -53,6 +53,7 @@ const EditUcm = () => {
                   onChange={e =>
                     setInput({ ...input, [e.target.id]: e.target.value })
                   }
+                  required
                 />
               </FormGroup>
               <FormGroup>
@@ -64,6 +65,7 @@ const EditUcm = () => {
                   onChange={e =>
                     setInput({ ...input, [e.target.id]: e.target.value })
                   }
+                  required
                 />
               </FormGroup>
               <FormGroup>
@@ -75,6 +77,7 @@ const EditUcm = () => {
                   onChange={e =>
                     setInput({ ...input, [e.target.id]: e.target.value })
                   }
+                  required
                 />
               </FormGroup>
               <FormGroup>
@@ -86,6 +89,7 @@ const EditUcm = () => {
                   onChange={e =>
                     setInput({ ...input, [e.target.id]: e.target.value })
                   }
+                  required
                 />
               </FormGroup>
               <FormGroup>

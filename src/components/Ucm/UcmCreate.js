@@ -51,19 +51,29 @@ const CreateUcm = () => {
             <Form onSubmit={handleSubmit}>
               <FormGroup>
                 <Label htmlFor='name'>Name</Label>
-                <Input type='text' id='name' onChange={handleChange} />
+                <Input type='text' id='name' onChange={handleChange} required />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor='ip'>IP Address</Label>
-                <Input type='text' id='ip' onChange={handleChange} />
+                <Input type='text' id='ip' onChange={handleChange} required />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor='username'>API Username</Label>
-                <Input type='text' id='username' onChange={handleChange} />
+                <Input
+                  type='text'
+                  id='username'
+                  onChange={handleChange}
+                  required
+                />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor='password'>API Password</Label>
-                <Input type='password' id='password' onChange={handleChange} />
+                <Input
+                  type='password'
+                  id='password'
+                  onChange={handleChange}
+                  required
+                />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor='version'>API Version</Label>
