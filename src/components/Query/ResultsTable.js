@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux'
 import { exportResults } from '../../store/actions/queryActions'
 
 // reactstrap components
-import { Button, Card, CardHeader, CardBody, Row } from 'reactstrap'
+import { Button, Card, CardBody, Row } from 'reactstrap'
 
 const ResultsTable = () => {
   const dispatch = useDispatch()

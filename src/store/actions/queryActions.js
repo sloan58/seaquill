@@ -64,7 +64,7 @@ ipcRenderer.on('success:query', (event, { rows, target }) => {
     })
   } else {
     const columns = Object.keys(rows[0]).map(column => {
-      if (column == 'id') {
+      if (column === 'id') {
         return {
           dataField: column,
           text: column,

@@ -15,7 +15,6 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Dashboard from 'views/Dashboard.jsx'
 import Query from 'views/Query.jsx'
 import Favorites from 'views/Favorites.jsx'
 import UcmListView from 'views/Ucm/UcmListView.jsx'

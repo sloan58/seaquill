@@ -19,9 +19,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Nav } from 'reactstrap'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  downloadUpdate,
+  performUpdate
+} from '../../store/actions/updateActions'
 
-import { FaBuffer, FaRedo } from 'react-icons/fa'
+import { FaBuffer, FaRedo, FaCloudDownloadAlt } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 
 const Sidebar = props => {
@@ -31,6 +35,7 @@ const Sidebar = props => {
   }
 
   const updater = useSelector(state => state.updater)
+  const dispatch = useDispatch()
 
   return (
     <div className='sidebar' data-color={props.backgroundColor}>
@@ -76,9 +81,30 @@ const Sidebar = props => {
               </li>
             )
           })}
+          {updater.available && (
+            <React.Fragment>
+              <div className='logo'></div>
+              <li onClick={() => dispatch(downloadUpdate())}>
+                <NavLink to='#' className='nav-link'>
+                  <IconContext.Provider
+                    value={{
+                      size: '2em',
+                      color: '#ffb236',
+                      className: 'mr-3'
+                    }}
+                  >
+                    <div>
+                      <FaCloudDownloadAlt />
+                      Download Update
+                    </div>
+                  </IconContext.Provider>
+                </NavLink>
+              </li>
+            </React.Fragment>
+          )}
           {updater.downloading && (
             <React.Fragment>
-              <div class='logo'></div>
+              <div className='logo'></div>
               <li>
                 <NavLink to='#' className='nav-link'>
                   <span
@@ -93,8 +119,8 @@ const Sidebar = props => {
           )}
           {updater.readyToInstall && (
             <React.Fragment>
-              <div class='logo'></div>
-              <li>
+              <div className='logo'></div>
+              <li onClick={() => dispatch(performUpdate())}>
                 <NavLink to='#' className='nav-link'>
                   <IconContext.Provider
                     value={{
@@ -105,7 +131,7 @@ const Sidebar = props => {
                   >
                     <div>
                       <FaRedo />
-                      Install Update Now
+                      Install Update
                     </div>
                   </IconContext.Provider>
                 </NavLink>

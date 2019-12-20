@@ -14,6 +14,11 @@ const { autoUpdater } = require('electron-updater')
 
 log.info(`Process says isDev = ${isDev}`)
 
+autoUpdater.logger = log
+autoUpdater.autoDownload = false
+autoUpdater.autoInstallOnAppQuit = false
+log.info(`Set autoUpdater properties`)
+
 function createDb() {
   const tables = ['ucms', 'favorites']
   log.info(`Defined DB table: ${tables}`)
@@ -62,7 +67,7 @@ function createWindow() {
       )
     )
 
-    log.info(`Opening developer tools`)
+    // log.info(`Opening developer tools`)
     // Open the DevTools
     // mainWindow.webContents.openDevTools()
   }
@@ -72,8 +77,10 @@ function createWindow() {
 app.on('ready', event => {
   log.info(`App ready received`)
 
-  log.info(`Checking for app updates`)
-  autoUpdater.checkForUpdatesAndNotify()
+  autoUpdater
+    .checkForUpdates()
+    .then(res => log.info(`Update Available ${res}`))
+    .catch(err => log.error(`Update Error ${err}`))
 
   log.info(`Creating new Database`)
   createDb()
@@ -239,11 +246,36 @@ ipcMain.on('update:favorite', (event, favorite) => {
 
 // Auto Updater
 autoUpdater.on('update-available', () => {
-  mainWindow.webContents.send('update:downloading')
+  log.info(`autoUpdater received update-available`)
+  log.info(`Firing update-available to renderer`)
+  mainWindow.webContents.send('update-available')
+})
+autoUpdater.on('download-progress', progressObj => {
+  log.info(`autoUpdater received download-progress`)
+  log.info(`Firing download-progress to renderer`)
+  mainWindow.webContents.send('download-progress')
 })
 autoUpdater.on('update-downloaded', () => {
-  mainWindow.webContents.send('update:ready')
+  log.info(`autoUpdater received update-downloaded`)
+  log.info(`Firing update-downloaded to renderer`)
+  mainWindow.webContents.send('update-downloaded')
 })
-ipcMain.on('update:now', () => {
+ipcMain.on('download-now', () => {
+  log.info(`ipcMain receievd download-now`)
+  log.info(`Downloading update`)
+  autoUpdater
+    .downloadUpdate()
+    .then(res => {
+      log.info(`Received ${res} response after download request`)
+      mainWindow.webContents.send('update-downloaded')
+    })
+    .catch(err => {
+      log.info(`Received ${err} error after download request`)
+      mainWindow.webContents.send('update-failed')
+    })
+})
+ipcMain.on('update-now', () => {
+  log.info(`ipcMain receievd update-now`)
+  log.info(`Installing app and restarting`)
   autoUpdater.quitAndInstall()
 })
