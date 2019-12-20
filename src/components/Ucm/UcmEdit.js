@@ -95,6 +95,7 @@ const EditUcm = () => {
               <FormGroup>
                 <Label htmlFor='version'>API Version</Label>
                 <Input
+                  type='select'
                   value={input.version}
                   id='version'
                   onChange={e =>
