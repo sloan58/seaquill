@@ -1,6 +1,6 @@
 {
   "name": "seaquill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
@@ -12,21 +12,6 @@
     "name": "Marty Sloan",
     "email": "marty@karmatek.io",
     "url": "https://karmatek.io"
-  },
-  "build": {
-    "appId": "com.karmatek.seaquill",
-    "productName": "SeaQuill",
-    "copyright": "Copyright © 2019 ${author}",
-    "mac": {
-      "category": "public.app-category.utilities"
-    },
-    "files": [
-      "build/**/*",
-      "node_modules/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
-    }
   },
   "dependencies": {
     "bootstrap": "4.3.1",
@@ -76,8 +61,10 @@
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-build": "electron-builder -mw --publish never",
-    "electron-deploy": "electron-builder -mw --publish always"
+    "electron-build": "yarn build && electron-builder -mw --publish never",
+    "electron-deploy:mac": "yarn build && electron-builder -m --publish always",
+    "electron-deploy:win32": "yarn build && electron-builder -w --ia32 --publish always",
+    "electron-deploy:win64": "yarn build && electron-builder -w --publish always"
   },
   "optionalDependencies": {
     "@types/googlemaps": "3.36.2",
