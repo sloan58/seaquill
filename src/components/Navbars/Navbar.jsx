@@ -116,8 +116,8 @@ class Header extends React.Component {
         expand='lg'
         className={
           this.props.location.pathname.indexOf('full-screen-maps') !== -1
-            ? 'navbar-absolute fixed-top'
-            : 'navbar-absolute fixed-top ' +
+            ? 'navbar-absolute fixed-top pt-5 '
+            : 'navbar-absolute fixed-top pt-5 ' +
               (this.state.color === 'transparent' ? 'navbar-transparent ' : '')
         }
       >

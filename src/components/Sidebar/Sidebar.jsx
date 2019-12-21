@@ -17,7 +17,7 @@
 */
 /*eslint-disable*/
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Nav } from 'reactstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import {
@@ -39,8 +39,8 @@ const Sidebar = props => {
 
   return (
     <div className='sidebar' data-color={props.backgroundColor}>
-      <div className='logo'>
-        <a href='/' className='simple-text logo-mini mr-0 pb-0'>
+      <div className='logo pt-5'>
+        <Link to='/admin/dashboard' className='simple-text logo-mini mr-0 pb-0'>
           <div className='logo-img'>
             <IconContext.Provider
               value={{
@@ -53,10 +53,10 @@ const Sidebar = props => {
               </div>
             </IconContext.Provider>
           </div>
-        </a>
-        <a href='/' className='simple-text logo-normal pt-1'>
+        </Link>
+        <Link to='/admin/dashboard' className='simple-text logo-normal pt-1'>
           <p>SeaQuill</p>
-        </a>
+        </Link>
       </div>
       <div className='sidebar-wrapper'>
         <Nav>
