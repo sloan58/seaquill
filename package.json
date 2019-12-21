@@ -61,7 +61,7 @@
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-build": "yarn build && electron-builder -mw --publish never",
+    "electron-build:mac": "yarn build && electron-builder -m --publish never",
     "electron-deploy:mac": "yarn build && electron-builder -m --publish always",
     "electron-deploy:win32": "yarn build && electron-builder -w --ia32 --publish always",
     "electron-deploy:win64": "yarn build && electron-builder -w --publish always"
@@ -89,8 +89,10 @@
     "@rescripts/cli": "^0.0.13",
     "@rescripts/rescript-env": "^0.0.11",
     "concurrently": "^5.0.1",
+    "dotenv": "^8.2.0",
     "electron": "7.1.2",
     "electron-builder": "^21.2.0",
+    "electron-notarize": "^0.2.1",
     "wait-on": "^3.3.0"
   }
 }
