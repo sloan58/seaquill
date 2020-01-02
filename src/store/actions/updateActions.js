@@ -2,6 +2,7 @@ import { ipcRenderer } from 'electron'
 import {
   UPDATE_AVAILABLE,
   UPDATE_DOWNLOADING,
+  UPDATE_PROGRESS,
   UPDATE_READY,
   UPDATE_FAILED
 } from './index'
@@ -28,8 +29,12 @@ ipcRenderer.on('update-available', () => {
     type: UPDATE_AVAILABLE
   })
 })
-ipcRenderer.on('download-progress', () => {
+ipcRenderer.on('download-progress', (event, { progress }) => {
   console.log('Recieved download-progress from ipcMain')
+  return store.dispatch({
+    type: UPDATE_PROGRESS,
+    payload: progress
+  })
 })
 ipcRenderer.on('update-downloaded', () => {
   console.log('Recieved update-downloaded')

@@ -18,7 +18,7 @@
 /*eslint-disable*/
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Nav } from 'reactstrap'
+import { Nav, Progress } from 'reactstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   downloadUpdate,
@@ -113,6 +113,13 @@ const Sidebar = props => {
                     aria-hidden='true'
                   ></span>
                   Downloading Update
+                  <Progress
+                    animated
+                    color='warning'
+                    value={updater.downloadProgress}
+                  >
+                    {updater.downloadProgress}%
+                  </Progress>
                 </NavLink>
               </li>
             </React.Fragment>

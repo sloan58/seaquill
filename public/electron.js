@@ -80,8 +80,12 @@ app.on('ready', event => {
 
   autoUpdater
     .checkForUpdates()
-    .then(res => log.info(`Update Available ${res}`))
-    .catch(err => log.error(`Update Error ${err}`))
+    .then(res =>
+      log.info(
+        `checkForUpdates response: current version is ${res.versionInfo.version}`
+      )
+    )
+    .catch(err => log.error(`checkForUpdates error: ${JSON.stringify(err)}`))
 
   log.info(`Creating new Database`)
   createDb()
@@ -254,7 +258,9 @@ autoUpdater.on('update-available', () => {
 autoUpdater.on('download-progress', progressObj => {
   log.info(`autoUpdater received download-progress`)
   log.info(`Firing download-progress to renderer`)
-  mainWindow.webContents.send('download-progress')
+  mainWindow.webContents.send('download-progress', {
+    progress: Math.ceil(progressObj.percent)
+  })
 })
 autoUpdater.on('update-downloaded', () => {
   log.info(`autoUpdater received update-downloaded`)

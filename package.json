@@ -1,6 +1,6 @@
 {
   "name": "seaquill",
-  "version": "0.1.2",
+  "version": "0.1.1",
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
