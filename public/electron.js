@@ -161,11 +161,17 @@ ipcMain.on('submit:query', (event, { query, targets }) => {
           event.reply('targeting:query', target)
           axlClient
             .executeSqlQuery(query, match[0])
-            .then(res => {
-              res.map((row, index) => {
-                Object.assign(row, { id: index, ucm: target.label })
+            .then(results => {
+              let rows = results.map((result, index) => {
+                let row = JSON.parse(
+                  JSON.stringify(result, function(key, value) {
+                    return value === undefined ? '' : value
+                  })
+                )
+                return Object.assign(row, { id: index, ucm: target.label })
               })
-              event.reply('success:query', { rows: res, target: target.label })
+
+              event.reply('success:query', { rows, target: target.label })
               resolve()
             })
             .catch(err => {
