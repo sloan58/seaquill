@@ -1,6 +1,6 @@
 {
   "name": "seaquill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
@@ -62,6 +62,7 @@
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
     "electron-build:mac": "yarn build && electron-builder -m --publish never",
+    "electron-build:win64": "yarn build && electron-builder -w --publish never",
     "electron-deploy:mac": "yarn build && electron-builder -m --publish always",
     "electron-deploy:win32": "yarn build && electron-builder -w --ia32 --publish always",
     "electron-deploy:win64": "yarn build && electron-builder -w --publish always"

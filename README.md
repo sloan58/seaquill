@@ -1,4 +1,10 @@
-# SeaQuill
+<p align="center">
+  <img src="./seaquill_logo.png" width="300">
+</p>
+<p align="center">
+  <b>SeaQuill</b><br>
+</p>
+<hr>
 
 A desktop client to send SQL queries to Cisco Unified Communications Manager
 
@@ -22,6 +28,10 @@ Download the latest client from the releases section of this repo
 
 You need a Cisco Unified Communication Manager with an account that has an AXL API role
 
+## Todo
+
+- Add logo to Electron app
+
 ## Authors
 
 - [Marty Sloan](https://github.com/sloan58)
@@ -32,4 +42,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-- Thanks to [Creative Tim](https://www.creative-tim.com/) for the awesome UI template
+- Bob Sloan for the sweet Seaquill logo
+- [Creative Tim](https://www.creative-tim.com/) for the awesome UI template
