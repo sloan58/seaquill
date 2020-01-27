@@ -54,19 +54,19 @@ function createWindow() {
     log.info(`Running dev process setup`)
 
     // Configure Dev Tools
-    log.info(`Adding dev tools extensions`)
-    BrowserWindow.addDevToolsExtension(
-      path.join(
-        os.homedir(),
-        '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.2.1_0'
-      )
-    )
-    BrowserWindow.addDevToolsExtension(
-      path.join(
-        os.homedir(),
-        '/Library/Application Support/Google/Chrome/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.17.0_0'
-      )
-    )
+    // log.info(`Adding dev tools extensions`)
+    // BrowserWindow.addDevToolsExtension(
+    //   path.join(
+    //     os.homedir(),
+    //     '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.2.1_0'
+    //   )
+    // )
+    // BrowserWindow.addDevToolsExtension(
+    //   path.join(
+    //     os.homedir(),
+    //     '/Library/Application Support/Google/Chrome/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.17.0_0'
+    //   )
+    // )
 
     // log.info(`Opening developer tools`)
     // Open the DevTools
