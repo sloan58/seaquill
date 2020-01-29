@@ -6,24 +6,33 @@
 </p>
 <hr>
 
-SeaQuill is an [Electon](https://www.electronjs.org/) desktop app with a [React](https://reactjs.org) front end that integrates with Cisco Unified Communications Manager via AXL API to send SQL queries and work with the results in a graphical interface.
+## Use Case Description
 
-## Getting Started
+SeaQuill is an [Electon](https://www.electronjs.org/) desktop app with a [React](https://reactjs.org) front end that integrates with Cisco Unified Communications Manager (UCM) via AXL API to send SQL queries and work with the results in a graphical interface.
 
-If you just want to use the app, you can download the latest client (Mac or Windows) from the releases section of this repo.
+If you've ever worked with the Cisco UCM database via the CLI platform to query for data, this app provides a way to do the same thing from your desktop while also letting you work with the output in a modern HTML interface.
 
-If you're interested in running this app locally or developing with it, please follow these steps:
+## Installation
 
-- Clone this repository to your local development environment
-- run `npm install && npm run electron-dev`
+Being an [Electon](https://www.electronjs.org/) app, SeaQuill can be downloaded and installed on your local system using the available installers for Mac and Windows (x64) which can be found in the [Releases](https://github.com/sloan58/seaquill/releases) section of this repository. This is the quickest and easiest way to get started with SeaQuill. Simply download and install one of the packages and start using it.
 
-You should now have a local instance of SeaQuill running on your machine.
+If you'd like to work with the source code, you can clone this repository and run a development version of the app. Please follow these steps and open an issue if you have any trouble.
 
-### Prerequisites
+- `git clone https://github.com/sloan58/seaquill.git`
+- `cd seaquill`
+- `npm install && npm run electron-dev`
 
-You need a Cisco Unified Communication Manager with an account that has AXL API access
+The source code will build and then launch a local SeaQuill Electron app that you can work with and modify as needed.
 
-### Screen Shots
+## Configuration
+
+In order to use SeaQuill, you'll need an account in a UCM server that has an AXL API role assigned. If you're just testing in a lab environment, using the UCM Application Administrator account will also work.
+
+You can add a new UCM server to SeaQuill using the UCM's menu item. Enter the details for your server address, auth information and schema version (corresponding to your UCM software version).
+
+![image](https://user-images.githubusercontent.com/6303820/73370949-0299bc00-4283-11ea-8ee4-f743535c3335.png)
+
+## Usage
 
 ###### Send queries to UCM
 
@@ -49,9 +58,11 @@ Edits to the queries are automatically saved and queries can be re-run by select
 
 ## Todo
 
-- Add logo to Electron app
+- Add logo to app
 
-## Authors
+## Author(s)
+
+This project was written and maintained by the following individuals:
 
 - [Marty Sloan](https://github.com/sloan58)
 

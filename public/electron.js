@@ -78,14 +78,16 @@ function createWindow() {
 app.on('ready', event => {
   log.info(`App ready received`)
 
-  autoUpdater
-    .checkForUpdates()
-    .then(res =>
-      log.info(
-        `checkForUpdates response: current version is ${res.versionInfo.version}`
+  if (!isDev) {
+    autoUpdater
+      .checkForUpdates()
+      .then(res =>
+        log.info(
+          `checkForUpdates response: current version is ${res.versionInfo.version}`
+        )
       )
-    )
-    .catch(err => log.error(`checkForUpdates error: ${JSON.stringify(err)}`))
+      .catch(err => log.error(`checkForUpdates error: ${JSON.stringify(err)}`))
+  }
 
   log.info(`Creating new Database`)
   createDb()
