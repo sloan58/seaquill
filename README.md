@@ -1,3 +1,5 @@
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/sloan58/seaquill)
+
 <p align="center">
   <img src="./seaquill_logo.png" width="300">
 </p>
