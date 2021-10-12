@@ -92,7 +92,7 @@
     "concurrently": "^5.0.1",
     "cross-env": "^7.0.0",
     "dotenv": "^8.2.0",
-    "electron": "7.1.2",
+    "electron": "11.5.0",
     "electron-builder": "^21.2.0",
     "electron-notarize": "^0.2.1",
     "wait-on": "^3.3.0"
